@@ -111,20 +111,20 @@ class identity_switch_prefs extends rcube_plugin
 	    switch ($typ = identity_switch_cfg::get('cfg', 'typ')) {
 		case 1: 												// simple view
 			$authImap = new html_select([ 'name' => "_isw_imap_auth" ]);
-			$authImap->add($this->gettext('idsw.imap.auth.none'), 'none');
-			$authImap->add($this->gettext('idsw.imap.auth.ssl'), 'ssl');
-			$authImap->add($this->gettext('idsw.imap.auth.tls'), 'tls');
+			$authImap->add($this->gettext('idsw.imap.pass.none'), 'none');
+			$authImap->add($this->gettext('idsw.imap.pass.ssl'), 'ssl');
+			$authImap->add($this->gettext('idsw.imap.pass.tls'), 'tls');
 
 			$args['form']['imap'] = [
 				'name' 	  => $this->gettext('idsw.imap.caption'),
 				'content' => [
 					'isw_imap_user' 		=> [ 'label' => $this->gettext('idsw.imap.user'),
 											   'type' => 'text', 'maxlength' => 64 ],
-					'isw_imap_pass' 		=> [ 'label' => $this->gettext('idsw.imap.pass'),
+					'isw_imap_pass' 		=> [ 'label' => $this->gettext('idsw.imap.pwd'),
 											   'type' => 'password', 'maxlength' => 128 ],
 					'isw_imap_host'	 		=> [ 'label' => $this->gettext('idsw.imap.host'),
 											   'type'  => 'text', 'maxlength' => 64 ],
-					'isw_imap_ssl' 			=> [ 'label' => $this->gettext('idsw.imap.ssl'),
+					'isw_imap_ssl' 			=> [ 'label' => $this->gettext('idsw.imap.pass'),
 											   'value' => $authImap->show($rec['isw_imap_ssl']) ],
 					'isw_imap_port' 		=> [ 'label' => $this->gettext('idsw.imap.port'),
 										  	   'type' => 'text', 'maxlength' => 5 ],
@@ -140,20 +140,20 @@ class identity_switch_prefs extends rcube_plugin
 	        $args['record']['isw_imap_delimiter'] 	= $rec['isw_imap_delimiter'];
 
 			$authSmtp = new html_select([ 'name' => "_isw_smtp_auth" ]);
-			$authSmtp->add($this->gettext('idsw.smtp.auth.none'), 'none');
-			$authSmtp->add($this->gettext('idsw.smtp.auth.ssl'), 'ssl');
-			$authSmtp->add($this->gettext('idsw.smtp.auth.tls'), 'tls');
+			$authSmtp->add($this->gettext('idsw.smtp.pass.none'), 'none');
+			$authSmtp->add($this->gettext('idsw.smtp.pass.ssl'), 'ssl');
+			$authSmtp->add($this->gettext('idsw.smtp.pass.tls'), 'tls');
 
 			$args['form']['smtp'] = [
 				'name' 	  => $this->gettext('idsw.smtp.caption'),
 				'content' => [
 					'isw_smtp_user' 	=> [ 'label' => $this->gettext('idsw.smtp.user'),
 										   'type' => 'text', 'maxlength' => 64 ],
-					'isw_smtp_pass' 	=> [ 'label' => $this->gettext('idsw.smtp.pass'),
+					'isw_smtp_pass' 	=> [ 'label' => $this->gettext('idsw.smtp.pwd'),
 										   'type' => 'password', 'maxlength' => 128 ],
 		        	'isw_smtp_host'	 	=> [ 'label' => $this->gettext('idsw.smtp.host'),
 										   'type' => 'text', 'maxlength' => 64 ],
-					'isw_smtp_ssl' 		=> [ 'label' => $this->gettext('idsw.smtp.ssl'),
+					'isw_smtp_ssl' 		=> [ 'label' => $this->gettext('idsw.smtp.pass'),
 										   'value' => $authSmtp->show($rec['isw_smtp_ssl']) ],
 		        	'isw_smtp_port' 	=> [ 'label' => $this->gettext('idsw.smtp.port'),
 										   'type' => 'text', 'maxlength' => 5 ],
